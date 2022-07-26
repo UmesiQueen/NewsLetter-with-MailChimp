@@ -63,7 +63,7 @@ body {
 }
 
 .form-signin {
-    max-width: 330px;
+    max-width: 390px;
     padding: 15px;
 }
 
@@ -87,7 +87,13 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
 .btn{
+    color: white;
     background-color: rgb(0, 197, 66);
     border: none;
+}
+
+.btn:hover{
+    background-color:  rgba(0, 197, 66, 0.584);
 }
