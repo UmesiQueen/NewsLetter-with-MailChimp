@@ -87,3 +87,7 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+.btn{
+    background-color: rgb(0, 197, 66);
+    border: none;
+}
