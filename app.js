@@ -3,10 +3,12 @@ const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
 
+const apiKeys = require("./apiKeys")
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-//provide a path for all external static files
+
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -32,12 +34,12 @@ app.post("/", (req, res) => {
 
     const jsonData = JSON.stringify(data);
 
-    const url = "https://us8.api.mailchimp.com/3.0/lists/d3ed9fb454"
+    const url = "https://us8.api.mailchimp.com/3.0/lists/" + apiKeys.audienceId;
 
     const options = {
         method: "POST",
-        auth: "queen:e27e9f8113c58fb3a121d397a8005c23-us8"
-    }
+        auth: apiKeys.mailChipAPIKey + "-us8"
+        }
 
     const request = https.request(url, options, function(response) {
 
@@ -48,8 +50,8 @@ app.post("/", (req, res) => {
         }
 
         response.on("data", function(data) {
-            const mailchimpData = JSON.parse(data);
-            console.log(mailchimpData);
+            const mailChimpData = JSON.parse(data);
+            // console.log(mailChimpData);
         });
     });
 
@@ -66,8 +68,3 @@ app.listen(process.env.PORT || 3000, () => {
     console.log("Server is running on port 3000");
 });
 
-// API Keys 
-// e27e9f8113c58fb3a121d397a8005c23-us8
-
-//list id
-//  d3ed9fb454
