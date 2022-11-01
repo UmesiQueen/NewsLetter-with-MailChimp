@@ -42,19 +42,9 @@ This solution is from Angela Yu's Udemy Web Development Boot Camp Course - Secti
 
 - run _npm install_ on terminal
 
-- Must have an account with MailChimp,
-  - If you do not have an account, create one on [mailchimp.com]https://mailchimp.com/)
-  - Locate and copy you personal **Audience Id** and **API key**
+- Must have an account with MailChimp
 
-- In the root directory create a new file named **apiKeys.js** 
-  - In new file, Create variable **mailChimpAPIKey** and assign anyString: apiKey retrieved. ie "JohnDoe:apiKey"
-  - Create **audienceId** and assign retrieved value
-  - export variables
-
-######**apiKeys.js** code snippet
-```
-exports.mailChimpAPIKey = "JohnDoe:fdf****e58-us8";  
-exports.audienceId = "d3e****454";  
+- Create a .env file using the .envTemplate
 
 ```
 

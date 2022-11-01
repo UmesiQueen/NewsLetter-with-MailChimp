@@ -2,8 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
-
-const apiKeys = require("./apiKeys")
+require("dotenv").config();
 
 const app = express();
 
@@ -15,6 +14,9 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/signup.html");
 
 });
+
+const audienceId = process.env.AUDIENCE_ID;
+const apiKey = process.env.MAILCHIMP_APIKEY;
 
 app.post("/", (req, res) => {
     const firstName = req.body.firstName;
@@ -34,11 +36,11 @@ app.post("/", (req, res) => {
 
     const jsonData = JSON.stringify(data);
 
-    const url = "https://us8.api.mailchimp.com/3.0/lists/" + apiKeys.audienceId;
+    const url = "https://us8.api.mailchimp.com/3.0/lists/" + audienceId;
 
     const options = {
         method: "POST",
-        auth: apiKeys.mailChipAPIKey + "-us8"
+        auth: apiKey
         }
 
     const request = https.request(url, options, function(response) {
