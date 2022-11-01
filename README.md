@@ -46,7 +46,6 @@ This solution is from Angela Yu's Udemy Web Development Boot Camp Course - Secti
 
 - Create a .env file using the .envTemplate
 
-```
 
 More info read [Mailchimps API Docs](https://mailchimp.com/developer/marketing/docs/fundamentals/)
 
